@@ -29,7 +29,8 @@ jobs:
       - run: npm install
       - run: npm install --no-save electron@22.3.27
       - run: npm run prep
-      - run: npx electron-builder --win nsis --x64 --ia32 --publish never -c.electronVersion=22.3.27
+      - shell: bash
+        run: npx electron-builder --win nsis --x64 --ia32 --publish never --config.electronVersion=22.3.27
       - shell: bash
         run: mkdir out && cp dist/*.exe "out/AswaqBadr-Windows-All-Versions.exe"
       - uses: actions/upload-artifact@v4
